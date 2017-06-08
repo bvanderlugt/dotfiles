@@ -143,7 +143,13 @@ noremap <leader>a ggVG
 inoremap jj <ESC>
 
 " file specific
-autocmd FileType tf setlocal shiftwidth=2 tabstop=2 sts=2
+autocmd FileType tf setlocal ts=2 sts=2 sw=2 
+autocmd Filetype html setlocal ts=4 sts=4 sw=4 omnifunc=htmlcomplete#CompleteTags
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+autocmd FileType javascript setlocal ts=4 sts=4 sw=4
+autocmd FileType python setlocal ts=4 sts=4 sw=4
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2
+autocmd FileType css setlocal ts=4 noet sw=4 omnifunc=csscomplete#CompleteCSS
 
 " ---------------------- PLUGIN CONFIGURATION ----------------------
 " initiate Vundle
