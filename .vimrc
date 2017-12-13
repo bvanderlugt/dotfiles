@@ -201,4 +201,5 @@ colorscheme wombat256
 " make a mark for column 80
 set colorcolumn=80
 " and set the mark color to DarkSlateGray
- highlight ColorColumn ctermbg=lightgray guibg=lightgray
+highlight ColorColumn ctermbg=lightgray guibg=lightgray
+

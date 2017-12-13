@@ -52,7 +52,7 @@ ZSH_THEME="agnoster"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node osx python terraform aws vim-mode)
+plugins=(git node osx python terraform aws vim-mode gcloud)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -90,3 +90,18 @@ DEFAULT_USER=`whoami`
 
 # cntrl-s can go to application
 stty -ixon
+
+#Golang things
+export GOPATH=$HOME/go # don't forget to change your path correctly!
+
+# GIT
+export GIT_EDITOR=vim
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/blair/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/blair/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/blair/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/blair/google-cloud-sdk/completion.zsh.inc'; fi
