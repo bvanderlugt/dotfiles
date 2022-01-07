@@ -175,8 +175,9 @@ fi
 alias git-branch-date="git for-each-ref --sort=committerdate refs/heads/
 --format='%(committerdate:short) %(refname:short)'"
 
-export GOPATH=$HOME/go/bin/    
-export PATH="$PATH:$GOPATH"
+# Golang
+export GOPATH=$HOME/go/    
+export PATH="$PATH:$GOPATH/bin"
 export PATH="/usr/local/sbin:$PATH"
 
 # >>>> Vagrant command completion (start)
