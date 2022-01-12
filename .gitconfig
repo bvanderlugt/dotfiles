@@ -1,0 +1,17 @@
+# This is Git's per-user configuration file.
+[user]
+	email = blair.vanderlugt@gmail.com
+	name = Blair V
+# Please adapt and uncomment the following lines:
+#	name = Blair Vanderlugt
+#	email = blairvanderlugt@Blairs-MBP.attlocal.net
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
+[diff]
+  external = git_diff_wrapper
+[pager]
+  diff =
+[alias]
+    slog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit
