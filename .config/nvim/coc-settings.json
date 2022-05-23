@@ -9,11 +9,6 @@
     "html",
     "json",
     "css",
-    "scss",
-    "go"
-  ],
-  "coc.preferences.hoverTarget": "float",
-  "go.goplsOptions": {
-    "staticcheck": true
-  }
+    "scss"
+  ]
 }
