@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$PATH:$HOME/bin:/usr/local/bin
+export PATH=$PATH:$HOME/bin:/usr/local/bin:/$HOME/go/bin
 
 # for old vim type '\vim'
 GIT_EDITOR=nvim

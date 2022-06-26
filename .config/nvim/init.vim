@@ -4,6 +4,7 @@ set ts=2 sts=2 sw=2
 set cursorline
 set hlsearch
 set autowrite
+set nowrap         " line in screen
 set nocompatible   " be improved, required
 filetype off       " required
 " I don't know what this does?
@@ -79,7 +80,6 @@ endfunction
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
-
 " autocomplete prompt on '.'
-au filetype go inoremap <buffer> . .<C-x><C-o>
+" au filetype go inoremap <buffer> . .<C-x><C-o>
 
