@@ -17,3 +17,5 @@
 
 !/.config/nvim/init.vim
 !/.config/nvim/coc-settings.json
+
+!/.docs/
