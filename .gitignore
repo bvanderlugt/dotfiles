@@ -13,5 +13,7 @@
 !/.config/nvim/
 /.config/nvim/*
 
+!/.config/fish/
+
 !/.config/nvim/init.vim
 !/.config/nvim/coc-settings.json
