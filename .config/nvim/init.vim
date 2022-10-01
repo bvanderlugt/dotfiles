@@ -5,6 +5,7 @@ set cursorline
 set hlsearch
 set autowrite
 set nowrap         " line in screen
+au BufRead,BufNewFile *.md setlocal textwidth=80
 set nocompatible   " be improved, required
 filetype off       " required
 " I don't know what this does?
@@ -17,6 +18,8 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'preservim/nerdtree'
   Plug 'kien/ctrlp.vim'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'dense-analysis/ale'
+  Plug 'nvie/vim-flake8'
 call plug#end()
 " select the color scheme
 colorscheme gruvbox
@@ -83,3 +86,21 @@ autocmd FileType go nmap <leader>t  <Plug>(go-test)
 " autocomplete prompt on '.'
 " au filetype go inoremap <buffer> . .<C-x><C-o>
 
+" Python Configs
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix |
+
+" whitespace
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" encoding
+set encoding=utf-8
+
+" python highlighting
+let python_highlight_all=1
