@@ -2,7 +2,11 @@
 
 ## Who is this document for?
 
+I wrote this for my own dev set up but anyone can follow along.
+
 ## Prerequisites
+
+Um, a POSIX like system. I do vary software across mac and linux, but I am mostly on linux these days so it will be tailored for those systems.
 
 ## Python
 
@@ -61,9 +65,25 @@ conda init bash fish
 
 ```
 
-## Setting up .zsh
+## Shell configs
+
+I have been liking fish shell lateley
+
+```
+apt install fish
+```
+
+see helper functions in ~/.config/fish/functions/
 
 ## Setting up neovim
+
+```
+sudo apt install -y neovim
+```
+
+The init config file should auto-install vim-plug after running it once. 
+
+You will need to start neovim and run `:PlugInstall` to get the plugins installed.
 
 ## Setting up tmux
 

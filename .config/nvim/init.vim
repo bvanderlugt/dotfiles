@@ -4,15 +4,22 @@ set ts=2 sts=2 sw=2
 set cursorline
 set hlsearch
 set autowrite
-set nowrap         " line in screen
-au BufRead,BufNewFile *.md setlocal textwidth=80
+set nowrap         " line in screen au BufRead,BufNewFile *.md setlocal textwidth=80
 set nocompatible   " be improved, required
 filetype off       " required
 " I don't know what this does?
 "filetype plugin indent on
 
+" auto-install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " store the plugins in plugged dir
 call plug#begin('~/.config/nvim/plugged')
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'morhetz/gruvbox'
   Plug 'tpope/vim-fugitive'
   Plug 'preservim/nerdtree'
@@ -20,6 +27,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'dense-analysis/ale'
   Plug 'nvie/vim-flake8'
+  Plug 'diepm/vim-rest-console'
+  Plug 'yaegassy/coc-ansible', {'do': 'yarn install --frozen-lockfile'}
+  Plug 'pearofducks/ansible-vim'
+  Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 " select the color scheme
 colorscheme gruvbox
@@ -104,3 +115,19 @@ set encoding=utf-8
 
 " python highlighting
 let python_highlight_all=1
+
+" Ansible
+let g:coc_filetype_map = {
+  \ 'yaml.ansible': 'ansible',
+  \ }
+
+" vim-rest-console
+let g:vrc_output_buffer_name = '__VRC_OUTPUT.<filetype>'
+
+" copy to sys clipboard
+set clipboard=unnamedplus
+
+" goto next whitespace block
+" https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
+nnoremap <M-,> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
+nnoremap <M-.> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
