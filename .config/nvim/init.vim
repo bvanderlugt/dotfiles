@@ -1,4 +1,4 @@
-syntax on
+syntax enable
 set nu ru et
 set ts=2 sts=2 sw=2
 set cursorline
@@ -6,9 +6,15 @@ set hlsearch
 set autowrite
 set nowrap         " line in screen au BufRead,BufNewFile *.md setlocal textwidth=80
 set nocompatible   " be improved, required
-filetype off       " required
-" I don't know what this does?
-"filetype plugin indent on
+set clipboard=unnamedplus " copy to system clipboard
+filetype off
+" filetype plugin indent on " this should run on Plug end
+
+" # External Plugins #
+" ## Variable Init ##
+"let g:coc_node_path = '/opt/homebrew/bin/node'
+let $FZF_DEFAULT_COMMAND.=' --hidden'
+let $PYTHONUNBUFFERED=1
 
 " auto-install vim-plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -20,18 +26,51 @@ endif
 " store the plugins in plugged dir
 call plug#begin('~/.config/nvim/plugged')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'morhetz/gruvbox'
-  Plug 'tpope/vim-fugitive'
-  Plug 'preservim/nerdtree'
-  Plug 'kien/ctrlp.vim'
+
+  " ## Language specific plugins ##
+  Plug 'tomlion/vim-solidity'
+  Plug 'vyperlang/vim-vyper'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+  " ### Pandoc markdown formatting and conceal ###
+  Plug 'vim-pandoc/vim-pandoc-syntax'
+  " ### Python autoformatter not on homebrew vim ###
+  Plug 'psf/black', { 'branch': 'stable' }
   Plug 'dense-analysis/ale'
   Plug 'nvie/vim-flake8'
+
+  " ## Interactive Testing ##
+  Plug 'vim-test/vim-test'
+  " ### Async Make (for vim-test) ###
+  Plug 'neomake/neomake'
+
+  " ### General plugins ###
+  Plug 'morhetz/gruvbox'
+  Plug 'tpope/vim-fugitive'
+  Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+  Plug 'editorconfig/editorconfig-vim'
+  "Plug 'kien/ctrlp.vim'
+
+  " ## fzf ##
+  Plug 'junegunn/fzf.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
+  " ### for testing rest apis ###
   Plug 'diepm/vim-rest-console'
+
   " Plug 'yaegassy/coc-ansible', {'do': 'yarn install --frozen-lockfile'}
   " Plug 'pearofducks/ansible-vim'
-  Plug 'editorconfig/editorconfig-vim'
+  "
+  " ## Highlight and fix trailing whitespace ##
+  Plug 'ntpeters/vim-better-whitespace'
+  " ## Highlight what was yanked. ##
+  Plug 'machakann/vim-highlightedyank'
+
+"" ## Hightlighting of hex color codes in that color ##
+"Plug 'ap/vim-css-color'
+  " ### ai assisted coding ###
   Plug 'github/copilot.vim'
+
 call plug#end()
 " select the color scheme
 colorscheme gruvbox
@@ -125,8 +164,6 @@ let g:coc_filetype_map = {
 " vim-rest-console
 let g:vrc_output_buffer_name = '__VRC_OUTPUT.<filetype>'
 
-" copy to sys clipboard
-set clipboard=unnamedplus
 
 " goto next whitespace block
 " https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation

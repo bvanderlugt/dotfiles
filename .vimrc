@@ -4,6 +4,7 @@ set backspace=2
 set number
 colorscheme desert 
 set nobackup   
+set clipboard=unnamedplus " copy to sys clipboard, requires vim-gnome or vim-gtk
 
 " # Visual Mode Mappings #
 " ## Sort selected text ##
