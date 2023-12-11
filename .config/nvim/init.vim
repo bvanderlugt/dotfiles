@@ -28,9 +28,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'dense-analysis/ale'
   Plug 'nvie/vim-flake8'
   Plug 'diepm/vim-rest-console'
-  Plug 'yaegassy/coc-ansible', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'pearofducks/ansible-vim'
+  " Plug 'yaegassy/coc-ansible', {'do': 'yarn install --frozen-lockfile'}
+  " Plug 'pearofducks/ansible-vim'
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'github/copilot.vim'
 call plug#end()
 " select the color scheme
 colorscheme gruvbox

@@ -71,14 +71,15 @@ ZSH_THEME="strug"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git kubectl kube-ps1 aws gcloud helm)
+#plugins=(git kubectl kube-ps1 aws gcloud helm)
+plugins=(git fzf-tab virtualenv gcloud)
 
 source $ZSH/oh-my-zsh.sh
-
-PROMPT='$(kube_ps1)'$PROMPT
-kubeoff
+#
+#PROMPT='$(kube_ps1)'$PROMPT
+#kubeoff
 # User configuration
-
+#
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -102,6 +103,25 @@ kubeoff
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias k=kubectl
+#alias k=kubectl
 
-eval "$(logcli --completion-script-zsh)"
+# loki logcli
+# eval "$(logcli --completion-script-zsh)"
+
+# go path
+export PATH="$PATH:/home/kiskadee/go/bin:/home/kiskadee/.local/bin"
+#
+# add Pulumi to the PATH
+export PATH=$PATH:$HOME/.pulumi/bin
+
+if [ -f ~/.sh_aliases ]; then
+		source ~/.sh_aliases
+fi
+
+if [ -f ~/.sh_env_vars ]; then
+		source ~/.sh_env_vars
+fi
+
+#autoload -Uz compinit
+#zstyle ':completion:*' menu select
+#fpath+=~/.zfunc
