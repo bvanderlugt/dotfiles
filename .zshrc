@@ -109,7 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # eval "$(logcli --completion-script-zsh)"
 
 # go path
-export PATH="$PATH:/home/kiskadee/go/bin:/home/kiskadee/.local/bin"
+export PATH="$PATH:$HOME/go/bin"
 #
 # add Pulumi to the PATH
 export PATH=$PATH:$HOME/.pulumi/bin
@@ -122,6 +122,6 @@ if [ -f ~/.sh_env_vars ]; then
 		source ~/.sh_env_vars
 fi
 
-#autoload -Uz compinit
-#zstyle ':completion:*' menu select
-#fpath+=~/.zfunc
+autoload -Uz compinit
+zstyle ':completion:*' menu select
+fpath+=~/.zfunc
