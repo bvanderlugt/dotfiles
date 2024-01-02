@@ -75,7 +75,10 @@ ZSH_THEME="strug"
 plugins=(git fzf-tab virtualenv gcloud)
 
 source $ZSH/oh-my-zsh.sh
-#
+
+# putting this here to fix virtualenv prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=
+
 #PROMPT='$(kube_ps1)'$PROMPT
 #kubeoff
 # User configuration

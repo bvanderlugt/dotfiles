@@ -47,7 +47,7 @@ call plug#begin('~/.config/nvim/plugged')
   " ### General plugins ###
   Plug 'morhetz/gruvbox'
   Plug 'tpope/vim-fugitive'
-  Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
+  Plug 'preservim/nerdtree'
   Plug 'editorconfig/editorconfig-vim'
   "Plug 'kien/ctrlp.vim'
 
@@ -164,6 +164,24 @@ let g:coc_filetype_map = {
 " vim-rest-console
 let g:vrc_output_buffer_name = '__VRC_OUTPUT.<filetype>'
 
+" copilot settings
+let g:copilot_filetypes = {
+    \ 'gitcommit': v:true,
+    \ 'markdown': v:true,
+    \ 'yaml': v:true,
+    \ 'python': v:true,
+    \ }
+
+autocmd BufReadPre *
+   \ let f=getfsize(expand("<afile>"))
+   \ | if f > 100000 || f == -2
+   \ | let b:copilot_enabled = v:false
+   \ | endif
+
+" FZF settings
+nnoremap <silent> <C-f> :Files<CR>
+nnoremap <silent> <Leader>f :Rg<CR>
+set grepprg=rg\ --vimgrep\ --smart-case\ --follow " use ripgrep for grepping
 
 " goto next whitespace block
 " https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
