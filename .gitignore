@@ -5,6 +5,7 @@
 !.vimrc
 !.gitconfig
 !.sh_*
+!.tmux.config
 
 .*/
 
