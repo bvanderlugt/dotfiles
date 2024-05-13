@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
-	email = blair@vandair.net
-	name = BlairV
+	email = 7863553+bvanderlugt@users.noreply.github.com
+	name = Blair Vanderlugt
 # Please adapt and uncomment the following lines:
 #	name = Blair Vanderlugt
 #	email = blairvanderlugt@Blairs-MBP.attlocal.net
@@ -15,3 +15,5 @@
     slog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit
 [core]
 	autocrlf = input
+[push]
+	default = simple

@@ -70,6 +70,9 @@ call plug#begin('~/.config/nvim/plugged')
 "Plug 'ap/vim-css-color'
   " ### ai assisted coding ###
   Plug 'github/copilot.vim'
+  " for copilot chat
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
 
 call plug#end()
 " select the color scheme
@@ -161,6 +164,10 @@ let g:coc_filetype_map = {
   \ 'yaml.ansible': 'ansible',
   \ }
 
+" coc settings
+let g:coc_enable_hover = 1
+
+
 " vim-rest-console
 let g:vrc_output_buffer_name = '__VRC_OUTPUT.<filetype>'
 
@@ -187,3 +194,11 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --follow " use ripgrep for grepping
 " https://vim.fandom.com/wiki/Move_to_next/previous_line_with_same_indentation
 nnoremap <M-,> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
 nnoremap <M-.> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
+
+" Copilot Chat
+lua << EOF
+require("CopilotChat").setup {
+  debug = true, -- Enable debugging
+  -- See Configuration section for rest
+}
+EOF
