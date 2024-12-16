@@ -72,7 +72,10 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'github/copilot.vim'
   " for copilot chat
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'canary' }
+  Plug 'CopilotC-Nvim/CopilotChat.nvim', { 'branch': 'main' }
+
+  " Astro
+  Plug 'wuelnerdotexe/vim-astro'
 
 call plug#end()
 " select the color scheme
@@ -202,3 +205,5 @@ require("CopilotChat").setup {
   -- See Configuration section for rest
 }
 EOF
+
+let g:astro_typescript = 'enable'
